@@ -1,15 +1,13 @@
 buildscript {
-    apply from: 'dependencies.gradle'
-
     repositories {
         google()
         jcenter()
     }
 
     dependencies {
-        classpath "com.android.tools.build:gradle:$versions.gradle"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
-        classpath "org.jetbrains.dokka:dokka-android-gradle-plugin:$versions.dokka"
+        classpath Plugins.androidTools
+        classpath Plugins.kotlin
+        classpath Plugins.dokka
     }
 }
 

@@ -1,9 +1,9 @@
 android {
-    compileSdkVersion Integer.parseInt(versions.compileSdk)
+    compileSdkVersion Versions.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion versions.minSdk
-        targetSdkVersion versions.targetSdk
+        minSdkVersion Versions.minSdkVersion
+        targetSdkVersion Versions.targetSdkVersion
     }
 
     compileOptions {
@@ -11,5 +11,5 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    buildToolsVersion versions.buildTools
+    buildToolsVersion Versions.buildToolsVersion
 }

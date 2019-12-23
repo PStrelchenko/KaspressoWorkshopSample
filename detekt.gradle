@@ -5,19 +5,18 @@ def reportsDir = "$analysisDir/reports"
 
 subprojects { subproject ->
     apply plugin: 'io.gitlab.arturbosch.detekt'
-    apply from: '../dependencies.gradle'
 
     configurations {
         detekt
     }
 
     dependencies {
-        detekt("io.gitlab.arturbosch.detekt:detekt-formatting:$versions.detekt")
-        detekt("io.gitlab.arturbosch.detekt:detekt-cli:$versions.detekt")
+        detekt(Plugins.detekt.detektFormatting)
+        detekt(Plugins.detekt.detektCli)
     }
 
     detekt {
-        toolVersion = "$versions.detekt"
+        toolVersion = Plugins.detekt.detektToolVersion
         input = files("src")
         filters = ".*/resources/.*,.*/build/.*"
         config = files("${project.rootDir}/detekt/config/detekt/config.yml")

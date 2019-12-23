@@ -2,7 +2,6 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-apply from: '../dependencies.gradle'
 apply from: '../dokka.gradle'
 apply from: '../options.gradle'
 
@@ -29,12 +28,12 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+    compileOnly Libs.kotlin
 
     // Dagger
-    implementation "com.google.dagger:dagger:$versions.dagger"
-    implementation "com.google.dagger:dagger-android:$versions.dagger"
-    implementation "com.google.dagger:dagger-android-support:$versions.dagger"
-    kapt "com.google.dagger:dagger-compiler:$versions.dagger"
-    kapt "com.google.dagger:dagger-android-processor:$versions.dagger"
+    compileOnly Libs.dagger.daggerCore
+    compileOnly Libs.dagger.daggerAndroid
+    compileOnly Libs.dagger.daggerSupport
+    kapt Libs.dagger.daggerCompiler
+    kapt Libs.dagger.daggerAndroidProcessor
 }
