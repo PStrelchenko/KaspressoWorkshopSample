@@ -9,8 +9,7 @@ import com.eakurnikov.kaspressosample.ztrel_workshop.matchers.pages.PostsScreen
 import org.junit.Rule
 import org.junit.Test
 
-
-class PostsEspressoTest {
+class PostsMockTest {
 
     private val mainScreen = MainScreen()
     private val postsScreen = PostsScreen()
@@ -43,5 +42,6 @@ class PostsEspressoTest {
         }
 
     }
+
 
 }

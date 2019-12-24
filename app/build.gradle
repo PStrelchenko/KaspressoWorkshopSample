@@ -11,8 +11,8 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-//        testInstrumentationRunner "com.eakurnikov.kaspressosample.posts.mock.MockedTestRunner"
+//        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.eakurnikov.kaspressosample.posts.mock.MockedTestRunner"
 
         sourceSets {
             main.java.srcDirs += 'src/main/kotlin'
