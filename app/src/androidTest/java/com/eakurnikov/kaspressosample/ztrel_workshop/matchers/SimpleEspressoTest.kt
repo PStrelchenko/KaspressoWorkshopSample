@@ -8,6 +8,8 @@ import androidx.test.rule.ActivityTestRule
 import com.eakurnikov.kaspressosample.R
 import com.eakurnikov.kaspressosample.view.main.MainActivity
 import com.eakurnikov.kaspressosample.ztrel_workshop.matchers.matchers.BackgroundColorMatcher.Companion.withBackgroundColor
+import com.eakurnikov.kaspressosample.ztrel_workshop.matchers.pages.MainScreen
+import com.eakurnikov.kaspressosample.ztrel_workshop.matchers.pages.SimpleScreen
 import org.hamcrest.Matchers.allOf
 import org.junit.Rule
 import org.junit.Test
@@ -15,17 +17,15 @@ import org.junit.Test
 
 class SimpleEspressoTest {
 
+    private val mainScreen = MainScreen()
+    private val simpleScreen = SimpleScreen()
+
     @get:Rule
     val activityTestRule = ActivityTestRule(MainActivity::class.java, true, true)
 
 
     @Test
     fun myTest() {
-        onView(withText("Screens to test"))
-            .check(
-                matches(isDisplayed())
-            )
-
         onView(
             withId(R.id.btn_simple_screen)
         ).check(matches(isClickable()))
