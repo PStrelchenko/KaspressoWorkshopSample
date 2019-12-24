@@ -105,6 +105,7 @@ object Libs {
         const val espressoWeb = "androidx.test.espresso:espresso-web:$espressoVersion"
         const val espressoContrib = "androidx.test.espresso:espresso-contrib:$espressoVersion"
         const val espressoIntents = "androidx.test.espresso:espresso-intents:$espressoVersion"
+        const val espressoIdling = "androidx.test.espresso.idling:idling-concurrent:$espressoVersion"
         const val kaspresso = "com.kaspersky.android-components:kaspresso:$kaspressoVersion"
     }
 }

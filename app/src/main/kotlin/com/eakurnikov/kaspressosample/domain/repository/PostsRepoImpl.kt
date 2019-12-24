@@ -9,6 +9,7 @@ import com.eakurnikov.kaspressosample.data.network.api.PostsApi
 import com.eakurnikov.kaspressosample.data.network.dto.CommentDto
 import com.eakurnikov.kaspressosample.data.network.dto.PostDto
 import com.eakurnikov.kaspressosample.data.repository.PostsRepo
+import com.eakurnikov.kaspressosample.idling.idling
 import io.reactivex.Flowable
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -32,6 +33,8 @@ class PostsRepoImpl @Inject constructor(
     override val postsSubject: BehaviorSubject<Resource<List<Post>>> = BehaviorSubject.create()
 
     override fun getPosts() {
+//        idling { postsIdlingResource.setIdleState(false) }
+
         postsSubject.onNext(Resource.Loading())
         disposeDao()
         daoDisposable = dao.getPosts()
@@ -99,6 +102,7 @@ class PostsRepoImpl @Inject constructor(
                             )
                         }
                     )
+//                    idling { postsIdlingResource.setIdleState(true) }
                 },
                 { error: Throwable ->
                     postsSubject.onNext(

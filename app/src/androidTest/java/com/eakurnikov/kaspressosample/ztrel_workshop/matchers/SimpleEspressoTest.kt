@@ -13,7 +13,7 @@ import org.junit.Rule
 import org.junit.Test
 
 
-class EspressoTest {
+class SimpleEspressoTest {
 
     @get:Rule
     val activityTestRule = ActivityTestRule(MainActivity::class.java, true, true)
@@ -68,6 +68,5 @@ class EspressoTest {
 
         onView(withId(R.id.tv_second_title)).check(matches(withText("")))
     }
-
 
 }
