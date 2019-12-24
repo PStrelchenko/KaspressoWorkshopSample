@@ -25,8 +25,9 @@ class MockedPostsApi : PostsApi {
             users += userDto
         }
 
-        fun appendPostDto(postDto: PostDto) {
+        fun appendPostDto(postDto: PostDto): PostDto {
             posts += postDto
+            return postDto
         }
 
     }

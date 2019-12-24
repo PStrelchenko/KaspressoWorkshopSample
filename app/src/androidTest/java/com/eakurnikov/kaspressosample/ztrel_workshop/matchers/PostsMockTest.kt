@@ -1,11 +1,12 @@
 package com.eakurnikov.kaspressosample.ztrel_workshop.matchers
 
 import androidx.test.rule.ActivityTestRule
-import com.eakurnikov.kaspressosample.data.network.dto.PostDto
-import com.eakurnikov.kaspressosample.posts.mock.MockedPostsApi
 import com.eakurnikov.kaspressosample.view.main.MainActivity
+import com.eakurnikov.kaspressosample.ztrel_workshop.matchers.dsl.Preconditions
+import com.eakurnikov.kaspressosample.ztrel_workshop.matchers.dsl.preconditions
 import com.eakurnikov.kaspressosample.ztrel_workshop.matchers.pages.MainScreen
 import com.eakurnikov.kaspressosample.ztrel_workshop.matchers.pages.PostsScreen
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
@@ -18,29 +19,43 @@ class PostsMockTest {
     @get:Rule
     val activityTestRule = ActivityTestRule(MainActivity::class.java, true, true)
 
+    private lateinit var preconditions: Preconditions
+
+    @Before
+    fun beforeEachTest() {
+        preconditions = preconditions {
+            user {
+                post {
+                    id = 1L
+                    title = "Test post #1"
+                    body = "Test post body # 1"
+                }
+                post {
+                    id = 2L
+                    title = "Test post #2"
+                    body = "Test post body # 2 bazinga"
+                }
+            }
+        }
+    }
+
     @Test
     fun postsScreenTest() {
-        MockedPostsApi.clear()
-        MockedPostsApi.appendPostDto(
-            PostDto(1, 1, "Test post #1", "Test post body #1")
-        )
-        MockedPostsApi.appendPostDto(
-            PostDto(2, 1, "Test post #2", "Test post body #2")
-        )
+        preconditions.testCase {
+            assert(posts[1].title == "Test post #2")
 
+            mainScreen.navigateToPostsScreen()
 
-        mainScreen.navigateToPostsScreen()
+            Thread.sleep(3_000L)
 
-        Thread.sleep(3_000L)
-
-        postsScreen {
-            scrollToBottom()
-            checkItemOnLastPositionHasTitleWithBody(
-                title = "Last post",
-                body = "Perfect body"
-            )
+            postsScreen {
+                scrollToBottom()
+                checkItemOnLastPositionHasTitleWithBody(
+                    title = "Last post",
+                    body = "Perfect body"
+                )
+            }
         }
-
     }
 
 
