@@ -3,7 +3,7 @@ package com.eakurnikov.kaspressosample.ztrel_workshop.matchers.dsl
 import com.eakurnikov.kaspressosample.data.network.dto.PostDto
 import com.eakurnikov.kaspressosample.data.network.dto.UserDto
 
-class TestCase(
+class TestCaseData(
     val uniqueTestId: String,
     val users: List<UserDto>,
     val posts: List<PostDto>,

@@ -2,18 +2,18 @@ package com.eakurnikov.kaspressosample.ztrel_workshop.matchers.dsl
 
 
 class Preconditions(
-    private val testCase: TestCase
+    private val testCaseData: TestCaseData
 ) {
 
-    fun conditions(body: TestCase.() -> Unit): Preconditions {
-        testCase.body()
+    fun conditions(body: TestCaseData.() -> Unit): Preconditions {
+        testCaseData.body()
         return this
     }
 
-    fun testCase(body: TestCase.() -> Unit) {
-        testCase.initializationError?.let { throw it }
-        testCase.body()
-        testCase.clean()
+    fun testCase(body: TestCaseData.() -> Unit) {
+        testCaseData.initializationError?.let { throw it }
+        testCaseData.body()
+        testCaseData.clean()
     }
 
 }

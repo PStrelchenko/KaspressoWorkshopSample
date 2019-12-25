@@ -6,7 +6,7 @@ import com.eakurnikov.kaspressosample.posts.mock.MockedPostsApi
 
 object TestCaseCreator {
 
-    fun createTestCase(testCaseDsl: TestCaseDsl): TestCase {
+    fun createTestCase(testCaseDsl: TestCaseDsl): TestCaseData {
         MockedPostsApi.clear()
 
         val users = mutableListOf<UserDto>()
@@ -25,7 +25,7 @@ object TestCaseCreator {
             }
         }
 
-        return TestCase(
+        return TestCaseData(
             uniqueTestId = testCaseDsl.uniqueTestId,
             users = users,
             posts = posts,
