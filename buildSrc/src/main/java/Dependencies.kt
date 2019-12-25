@@ -99,7 +99,7 @@ object Libs {
 
     object UiTestsLibraries {
         private const val espressoVersion = "3.2.0"
-        private const val kaspressoVersion = "1.0.1"
+        private const val kaspressoVersion = "1.0.6"
         private const val kakaoVersion = "2.2.0"
 
         const val espressoCore = "androidx.test.espresso:espresso-core:$espressoVersion"
@@ -107,7 +107,7 @@ object Libs {
         const val espressoContrib = "androidx.test.espresso:espresso-contrib:$espressoVersion"
         const val espressoIntents = "androidx.test.espresso:espresso-intents:$espressoVersion"
         const val espressoIdling = "androidx.test.espresso.idling:idling-concurrent:$espressoVersion"
-        const val kaspresso = "com.kaspersky.android-components:kaspresso:$kaspressoVersion"
+        const val kaspresso = "ru.hh.kaspresso:kaspresso:$kaspressoVersion"
         const val kakao = "com.agoda.kakao:kakao:$kakaoVersion"
     }
 }

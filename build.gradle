@@ -19,6 +19,8 @@ apply from: 'detekt.gradle'
 
 allprojects {
     repositories {
+        maven { url "https://dl.bintray.com/hhru/maven" }
+
         google()
         jcenter()
     }
